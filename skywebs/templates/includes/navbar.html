@@ -6,7 +6,7 @@
       <nav class="navbar navbar-dark navbar-expand-lg py-0">
         <a href="index.html" class="navbar-brand">
           <h1 class="text-white fw-bold d-block">
-            High<span class="text-secondary">Tech</span>
+            Sky<span class="text-secondary">Webs</span>
           </h1>
         </a>
         <button
@@ -23,14 +23,19 @@
         >
           <div class="navbar-nav ms-auto mx-xl-auto p-0">
             <a
-              href="index.html"
-              class="nav-item nav-link active text-secondary"
+              href="{% url 'home:homepage' %}"
+              class="nav-item nav-link {% if request.resolver_match.url_name == "homepage" %}active{% endif %}"
               >Home</a
             >
-            <a href="about.html" class="nav-item nav-link">About</a>
-            <a href="service.html" class="nav-item nav-link">Services</a>
-            <a href="project.html" class="nav-item nav-link">Projects</a>
-            <div class="nav-item dropdown">
+            <a href="{% url 'about:aboutpage' %}"
+             class="nav-item nav-link {% if request.resolver_match.url_name == "aboutpage" %}active{% endif %}">About</a>
+            <a href="{% url 'services:servicespage' %}"
+             class="nav-item nav-link {% if request.resolver_match.url_name == "servicespage" %}active{% endif %}">Services</a>
+            <a href="{% url 'projects:projectspage' %}"
+             class="nav-item nav-link {% if request.resolver_match.url_name == "projectspage" %}active{% endif %}">Projects</a>
+            <a href="{% url 'blog:blogpage' %}"
+             class="nav-item nav-link {% if request.resolver_match.url_name == "blogpage" %}active{% endif %}">Blogs</a>
+            {% comment %} <div class="nav-item dropdown">
               <a
                 href="#"
                 class="nav-link dropdown-toggle"
@@ -45,10 +50,12 @@
                 >
                 <a href="404.html" class="dropdown-item">404 Page</a>
               </div>
-            </div>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div> {% endcomment %}
+            <a href="{% url 'contact:contactpage' %}"
+             class="nav-item nav-link {% if request.resolver_match.url_name == "contactpage" %}active{% endif %}">Contact</a>
           </div>
         </div>
+
         <div class="d-none d-xl-flex flex-shirink-0">
           <div
             id="phone-tada"
@@ -63,7 +70,7 @@
           </div>
           <div class="d-flex flex-column pe-4 border-end">
             <span class="text-white-50">Have any questions?</span>
-            <span class="text-secondary">Call: + 0123 456 7890</span>
+            <span class="text-secondary">Call: 0790900900</span>
           </div>
           <div class="d-flex align-items-center justify-content-center ms-4">
             <a href="#"><i class="bi bi-search text-white fa-2x"></i> </a>
