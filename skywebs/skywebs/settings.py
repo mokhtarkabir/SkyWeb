@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     #  --- my apps ---
     'home',
     'about',
-    'contact'
+    'contact',
+    'services',
+    'projects'
 
 ]
 
