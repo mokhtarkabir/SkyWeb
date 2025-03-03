@@ -4,7 +4,7 @@ from django.db import models
 
 class Service(models.Model):
     # Field for the icon (e.g., FontAwesome icon class name)
-    icon_name = models.CharField(max_length=50, help_text="Enter the icon class name (e.g., 'fa fa-code')")
+    icon_name = models.CharField(max_length=50, help_text="Class name of FontAwesome icon (e.g., 'fa fa-code')")
 
     # Field for the service title
     title = models.CharField(max_length=100, help_text="Enter the service title")
