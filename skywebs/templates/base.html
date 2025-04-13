@@ -60,7 +60,8 @@
     <!-- Carousel End -->
 
     <!-- Fact Start -->
-    <div class="container-fluid bg-secondary py-5">
+     
+    {% comment %} <div class="container-fluid bg-secondary py-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
@@ -91,7 +92,8 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> {% endcomment %}
+
     <!-- Fact End -->
 
     {% comment %}   main content  {% endcomment %}
@@ -117,5 +119,6 @@
 
     <!-- Template Javascript -->
     <script src="{% static "js/main.js"%}"></script>
+    {% comment %} <script src="{% static "js/project.js"%}"></script> {% endcomment %}
   </body>
 </html>

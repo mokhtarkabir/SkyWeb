@@ -73,175 +73,155 @@
 </div>
 <!-- Services End -->
 
-<!-- Project Start -->
-<div class="container-fluid project py-5 mb-5">
-  <div class="container">
+<!-- Projects Grid -->
+
+<div class="row px-5"> 
+  <h2>Our Projects</h2>
+  {% for project in projects %}
+  <div class="col-sm-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
+    <div class="project-card">
+      <div>
+        <h3 class="project-title">{{ project.name }}</h3>
+      </div>
+      <div class="preview-container mb-3">
+        {% if project.preview_type == 'iframe' %}
+        <iframe
+          src="{{ project.preview_url }}"
+          class="template-preview"
+          loading="lazy"
+          title="{{ project.name }} Preview"
+          style="width: 100%; height: 200px; border: none"
+        ></iframe>
+        {% elif project.preview_type == 'image' %}
+        <img
+          src="{{ project.preview_file.url }}"
+          class="img-fluid"
+          alt="{{ project.name }}"
+        />
+        {% elif project.preview_type == 'video' %}
+        <video controls style="width: 100%; height: 200px">
+          <source src="{{ project.preview_file.url }}" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<!-- Blog Section Start -->
+<div class="container-fluid blog py-5 my-5">
+  <div class="container py-5">
+    <!-- Section Title -->
     <div
       class="text-center mx-auto pb-5 wow fadeIn"
       data-wow-delay=".3s"
       style="max-width: 600px"
     >
-      <h5 class="text-primary">Our Project</h5>
-      <h1>Our Recently Completed Projects</h1>
-    </div>
-    <div class="row g-5">
-      <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
-        <div class="project-item">
-          <div class="project-img">
-            <img src="{% static "img/project-1.jpg" %}" class="img-fluid w-100
-            rounded" alt="" />
-            <div class="project-content">
-              <a href="#" class="text-center">
-                <h4 class="text-secondary">Web design</h4>
-                <p class="m-0 text-white">Web Analysis</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
-        <div class="project-item">
-          <div class="project-img">
-            <img src="{% static "img/project-2.jpg" %}" class="img-fluid w-100
-            rounded" alt="" />
-            <div class="project-content">
-              <a href="#" class="text-center">
-                <h4 class="text-secondary">Cyber Security</h4>
-                <p class="m-0 text-white">Cyber Security Core</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
-        <div class="project-item">
-          <div class="project-img">
-            <img src="{% static "img/project-3.jpg" %}" class="img-fluid w-100
-            rounded" alt="" />
-            <div class="project-content">
-              <a href="#" class="text-center">
-                <h4 class="text-secondary">Mobile Info</h4>
-                <p class="m-0 text-white">Upcomming Phone</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
-        <div class="project-item">
-          <div class="project-img">
-            <img src="{% static "img/project-4.jpg" %}" class="img-fluid w-100
-            rounded" alt="" />
-            <div class="project-content">
-              <a href="#" class="text-center">
-                <h4 class="text-secondary">Web Development</h4>
-                <p class="m-0 text-white">Web Analysis</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
-        <div class="project-item">
-          <div class="project-img">
-            <img src="{% static "img/project-5.jpg" %}" class="img-fluid w-100
-            rounded" alt="" />
-            <div class="project-content">
-              <a href="#" class="text-center">
-                <h4 class="text-secondary">Digital Marketing</h4>
-                <p class="m-0 text-white">Marketing Analysis</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
-        <div class="project-item">
-          <div class="project-img">
-            <img src="{% static "img/project-6.jpg" %}" class="img-fluid w-100
-            rounded" alt="" />
-            <div class="project-content">
-              <a href="#" class="text-center">
-                <h4 class="text-secondary">keyword Research</h4>
-                <p class="m-0 text-white">keyword Analysis</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Project End -->
-
-<!-- Blog Section Start -->
-<div class="container-fluid blog py-5 my-5">
-  <div class="container py-5">
-    <!-- Section Title -->
-    <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px">
       <h5 class="text-primary">Our Blog</h5>
       <h1>Latest Blog & News</h1>
     </div>
-    
+
     <!-- Blog Posts Grid -->
     <div class="row g-5 justify-content-center">
       {% for blog in blog %}
       <div class="col-lg-6 col-xl-4 wow fadeIn" data-wow-delay=".3s">
         <div class="blog-item position-relative bg-light rounded">
-          
           <!-- Blog Image -->
-          <img src="{{ blog.image.url }}" class="img-fluid w-100 rounded-top" alt="Blog Image" />
-          
+          <img
+            src="{{ blog.image.url }}"
+            class="img-fluid w-100 rounded-top"
+            alt="Blog Image"
+          />
+
           <!-- Blog Category Badge -->
-          <span class="position-absolute px-4 py-3 bg-primary text-white rounded" style="top: -28px; right: 20px">
+          <span
+            class="position-absolute px-4 py-3 bg-primary text-white rounded"
+            style="top: -28px; right: 20px"
+          >
             {{ blog.category }}
           </span>
-          
+
           <!-- Read More & Share Buttons -->
-          <div class="blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px">
+          <div
+            class="blog-btn d-flex justify-content-between position-relative px-3"
+            style="margin-top: -75px"
+          >
             <!-- Read More Button -->
             <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
-              <a href="{% url 'blog:blog_detail' blog.slug %}" class="btn text-white">Read More</a>
+              <a
+                href="{% url 'blog:blog_detail' blog.slug %}"
+                class="btn text-white"
+                >Read More</a
+              >
             </div>
-            
+
             <!-- Social Share Buttons -->
             <div class="blog-btn-icon btn btn-secondary px-4 py-3 rounded-pill">
               <div class="blog-icon-1">
-                <p class="text-white px-2">Share<i class="fa fa-arrow-right ms-3"></i></p>
+                <p class="text-white px-2">
+                  Share<i class="fa fa-arrow-right ms-3"></i>
+                </p>
               </div>
               <div class="blog-icon-2">
                 <!-- Facebook Share -->
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="btn me-1">
+                <a
+                  href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+                  target="_blank"
+                  class="btn me-1"
+                >
                   <i class="fab fa-facebook-f text-white"></i>
                 </a>
-                
+
                 <!-- Twitter Share -->
-                <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ blog.title }}" target="_blank" class="btn me-1">
+                <a
+                  href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ blog.title }}"
+                  target="_blank"
+                  class="btn me-1"
+                >
                   <i class="fab fa-twitter text-white"></i>
                 </a>
-                
+
                 <!-- WhatsApp Share -->
-                <a href="https://wa.me/?text={{ blog.title }}%20{{ request.build_absolute_uri }}" target="_blank" class="btn me-1">
+                <a
+                  href="https://wa.me/?text={{ blog.title }}%20{{ request.build_absolute_uri }}"
+                  target="_blank"
+                  class="btn me-1"
+                >
                   <i class="fab fa-whatsapp text-white"></i>
                 </a>
               </div>
             </div>
           </div>
-          
+
           <!-- Blog Content -->
-          <div class="blog-content text-center position-relative px-3" style="margin-top: 25px">
+          <div
+            class="blog-content text-center position-relative px-3"
+            style="margin-top: 25px"
+          >
             <h5 class="mb-1 py-2">{{ blog.title }}</h5>
-            <small class="text-muted">By {{ blog.author }} | {{ blog.published_at|date:"F d, Y" }}</small>
+            <small class="text-muted"
+              >By {{ blog.author }} | {{ blog.published_at|date:"F d, Y"
+              }}</small
+            >
             <p class="py-2">{{ blog.content|truncatewords:30 }}</p>
           </div>
-          
+
           <!-- Blog Footer (Views & Comments) -->
-          <div class="blog-comment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
-            <a  class="text-white">
-              <small><i class="fas fa-eye me-2 text-secondary"></i> {{ blog.views }} views</small>
+          <div
+            class="blog-comment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom"
+          >
+            <a class="text-white">
+              <small
+                ><i class="fas fa-eye me-2 text-secondary"></i> {{ blog.views }}
+                views</small
+              >
             </a>
-            <a  class="text-white">
-              <small><i class="fa fa-comments me-2 text-secondary"></i> {{ blog.comments.count }} Comments</small>
+            <a class="text-white">
+              <small
+                ><i class="fa fa-comments me-2 text-secondary"></i> {{
+                blog.comments.count }} Comments</small
+              >
             </a>
           </div>
         </div>
@@ -264,7 +244,7 @@
       <h1>Meet our expert Team</h1>
     </div>
     <div class="owl-carousel team-carousel wow fadeIn" data-wow-delay=".5s">
-    {% for teamItem in teamMember %}
+      {% for teamItem in teamMember %}
       <div class="rounded team-item">
         <div class="team-content">
           <div class="team-img-icon">
@@ -307,7 +287,7 @@
           </div>
         </div>
       </div>
-    {% endfor %}
+      {% endfor %}
     </div>
   </div>
 </div>

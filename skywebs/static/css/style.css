@@ -257,7 +257,19 @@
   background: var(--bs-secondary);
   opacity: 1;
 }
+/* carousel image file */
+.carousel-image {
+  height: 80vh; /* 80% of viewport height */
+  object-fit: cover; /* Ensures image covers area without distortion */
+  object-position: center; /* Centers the image */
+}
 
+/* For smaller screens */
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 60vh;
+  }
+}
 @media (max-width: 992px) {
   .carousel-item {
     min-height: 500px;
@@ -655,3 +667,7 @@
 }
 
 /*** Footer End ***/
+
+/*  */
+/*  */
+/*  */
