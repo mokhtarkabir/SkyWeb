@@ -11,16 +11,14 @@ def homePage(request):
     services = Service.objects.all()[:3]
     aboutpage = AboutPage.objects.all()[:1]
     teamMember = TeamMember.objects.all()
-    homeBlog = Blog.objects.all()[:3]
+    homeBlog = Blog.objects.all()[:3].prefetch_related('comments')
     projects = Projects.objects.all()[:3]
-    slideData = CarouselSlide.objects.all()
     context={
         'services': services,
         'aboutpage':aboutpage,
         'teamMember':teamMember,
-        'blog':homeBlog,
+        'blogs':homeBlog,
         'projects':projects,
-        'carouselData':slideData
     }
     return render(request, 'home/home.html', context)
 

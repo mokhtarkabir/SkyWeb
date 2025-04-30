@@ -75,7 +75,7 @@
 
 <!-- Projects Grid -->
 
-<div class="row px-5"> 
+<div class="row px-5">
   <h2>Our Projects</h2>
   {% for project in projects %}
   <div class="col-sm-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
@@ -124,7 +124,7 @@
 
     <!-- Blog Posts Grid -->
     <div class="row g-5 justify-content-center">
-      {% for blog in blog %}
+      {% for blog in blogs %}
       <div class="col-lg-6 col-xl-4 wow fadeIn" data-wow-delay=".3s">
         <div class="blog-item position-relative bg-light rounded">
           <!-- Blog Image -->
@@ -214,14 +214,13 @@
             <a class="text-white">
               <small
                 ><i class="fas fa-eye me-2 text-secondary"></i> {{ blog.views }}
-                views</small
-              >
+              </small>
             </a>
             <a class="text-white">
-              <small
-                ><i class="fa fa-comments me-2 text-secondary"></i> {{
-                blog.comments.count }} Comments</small
-              >
+              <small>
+                <i class="fa fa-comments me-2 text-secondary"></i>
+                 {{ blog.comments.all|length }} Comments
+               </small>
             </a>
           </div>
         </div>

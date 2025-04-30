@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.utils import timezone
-
 # category of blogs Eg: Sport, Technology, and etc...
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -32,11 +31,6 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
-
-from django.db import models
-from django.contrib.auth.models import User
-from django.utils import timezone
-from django.utils.text import slugify
 
 # commetn section ob blog 
 # where people who see the blog they can add comment and reply to comments
